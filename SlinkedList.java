@@ -8,8 +8,45 @@ public class SlinkedList {
 		size=0;		
 	}
 	
+	public boolean EstaVacio(){
+		return (head==null && size==0);
+	}
+	
+	public void EliminarPrimerNodo(){
+		if(!EstaVacio()){
+			if(size==1 && head.getEnlace()==null)
+				head=null;
+			else{
+				Nodo aux=head;
+				head=aux.getEnlace();	
+			}
+			size=size-1;
+		}
+	}
+	
+	public void EliminarUltimoNodo(){
+		if(!EstaVacio()){
+			if(size==1 && head.getEnlace()==null)
+				head=null;
+			else{
+				Nodo aux1, aux2;
+				aux1= head;
+				aux2=head;
+				
+				while(aux1.getEnlace()!=null){
+					aux2=aux1;
+					aux1=aux1.getEnlace();
+				}
+				aux2.setEnlace(null);
+			}
+			size=size-1;
+		}
+	}
+	
+	
+	
 	public void InsertarAlFinal(Nodo s){
-		if(head==null){
+		if(EstaVacio()){
 			head= s;
 			size=1;
 		}
@@ -25,7 +62,7 @@ public class SlinkedList {
 	}
 	
 	public void InsertarAlInicio(Nodo s){
-		if(head==null){
+		if(EstaVacio()){
 			head= s;
 			size=1;
 			}
@@ -43,11 +80,12 @@ public class SlinkedList {
 			return aux;			
 		while(aux.getEnlace()!=null){
 			if(clave.equalsIgnoreCase(aux.getEnlace().getDato()))
-				return aux;
+				return aux.getEnlace();
 			aux=aux.getEnlace();
 		}	
 		return null;
 	}
+	
 
 	@Override
 	public String toString() {
@@ -59,7 +97,7 @@ public class SlinkedList {
 			aux=aux.getEnlace();
 		}
 		
-		lista+="TamaÃ±o de Lista: "+size;
+		lista+="Tamanio de Lista: "+size;
 		return lista;
 	}
 	
