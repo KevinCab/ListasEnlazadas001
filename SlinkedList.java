@@ -36,6 +36,18 @@ public class SlinkedList {
 		size=size+1;
 		}	
 	}
+	
+	public Nodo BuscarDato(String clave){
+		Nodo aux=head;	
+		if(clave.equalsIgnoreCase(aux.getDato()))
+			return aux;			
+		while(aux.getEnlace()!=null){
+			if(clave.equalsIgnoreCase(aux.getEnlace().getDato()))
+				return aux;
+			aux=aux.getEnlace();
+		}	
+		return null;
+	}
 
 	@Override
 	public String toString() {
@@ -47,7 +59,7 @@ public class SlinkedList {
 			aux=aux.getEnlace();
 		}
 		
-		lista+="Tamaño de Lista: "+size;
+		lista+="TamaÃ±o de Lista: "+size;
 		return lista;
 	}
 	
