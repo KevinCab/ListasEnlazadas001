@@ -11,8 +11,10 @@ public class Aplicacion {
 		lista1.InsertarAlFinal(s);
 		lista1.InsertarAlFinal(t);
 		lista1.InsertarAlInicio(u);
-		
+				
 		System.out.println(lista1.toString());
+		System.out.println(lista1.BuscarDato("hola"));
+
 	}
 
 }
