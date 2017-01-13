@@ -22,7 +22,10 @@ public class Nodo {
 	public void setEnlace(Nodo newEnlace){
 		enlace= newEnlace;
 	}
-	
-	
 
+	@Override
+	public String toString() {
+		return "Nodo [dato=" + dato + "]";
+	}
+	
 }
